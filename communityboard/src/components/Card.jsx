@@ -4,9 +4,8 @@ const Card = (props) => {
     return (
         <div className="Card">
             <img class={"" + props.class} src={props.src} />
-            <h3>React</h3><h4>{props.diff}</h4><a href={props.href}>
+            <h3>React</h3><h4>{props.diff}</h4><a href={props.href} target="_blank">
             <button>View Video</button></a>
-
         </div>
     )
 }

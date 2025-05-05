@@ -1,10 +1,12 @@
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100vw; /* Ensures full screen width */
+  height: 100vh;
   background-color:black;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /*
@@ -21,14 +23,36 @@ body {
   height: 450px;
 }
   */
+.sidebar {
+  width: 60px;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  height: 100vh;
+  position: fixed;  /* Make it stick to the left */
+  top: 0;
+  left: 0;
+}
 
-/* .App {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-} */
-
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+  
+.main-content {
+  margin-left: 60px;  /* Equal to sidebar width */
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  background-color:white;
+}
 
 .Card {
     color: black;
@@ -50,4 +74,20 @@ body {
 
 .react {
   background-color: #20232a;
+}
+
+button {
+  color: white;
+  background-color: #20232a;
+  border-radius: 15px;
+  width: 100px;
+  height: 40px;
+  border: none;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover {
+  background-color: #2c2f39;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
