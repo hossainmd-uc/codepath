@@ -7,20 +7,33 @@ import { useState } from 'react';
 
 
 const App = () => {
-  //use states to tell Main Page what to render based on SideBar icon selection
   const [selectedLang, setSelectedLang] = useState(null);
+  const [submenuSelect, setSubmenuSelection] = useState(null);
+  const [pendingLang, setPendingLang] = useState(null);
 
-  //filter resources by selected language
-  const filteredResources = resources.filter(r => r.language === selectedLang)
+  const filteredResources = resources.filter(r => r.language === selectedLang);
+  const filtered = filteredResources.filter(res => res.type === submenuSelect);
 
   return (
     <div className="layout">
-      <Sidebar onSelect={setSelectedLang} />
+      <Sidebar
+        submenuSelect={submenuSelect}
+        setSubmenuSelection={setSubmenuSelection}
+        onSelect={setSelectedLang}
+        selectedLang={selectedLang}
+        pendingLang={pendingLang}
+        setPendingLang={setPendingLang}
+      />
       <div className="main-content">
-
+        {submenuSelect
+          ? filtered.map((res, i) => <Card key={i} {...res} />)
+          : <p>Please select a resource type.</p>
+        }
       </div>
     </div>
   );
 };
+
+
 
 export default App

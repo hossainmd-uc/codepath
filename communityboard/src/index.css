@@ -6,7 +6,6 @@ body {
   width: 100vw; /* Ensures full screen width */
   height: 100vh;
   background-color:black;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /*
@@ -45,7 +44,7 @@ body {
   margin-bottom: 20px;
   border-radius: 8px;
   transition: background-color 0.2s ease;
-  position: relative;
+
 }
 
 .icon-wrapper:hover {
@@ -82,7 +81,7 @@ body {
 }
 
 .submenu {
-  position: absolute;
+  position: fixed;
   left: 70px; /* Same as sidebar width */
   top: 0;
   background-color: #333;
@@ -90,17 +89,20 @@ body {
   padding: 8px 0;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  z-index: 100;
   min-width: 100px;
+  
 }
 
 .submenu div {
   padding: 10px 0;
+  transition: background-color 0.2s ease;
 }
 
 .submenu div:hover {
   background-color: white;
   color: black;
+  cursor: pointer;
 }
 
 .Card {
