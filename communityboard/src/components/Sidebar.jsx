@@ -30,6 +30,7 @@ const Sidebar = ({ onSelect, selectedLang, setSubmenuSelection, submenuSelect, p
     };
   
     const icons = [
+      { name: "home", src: "/images/home.png" },
       { name: "react", src: "/images/react.svg" },
       { name: "python", src: "/images/python.svg" },
     ];
