@@ -36,6 +36,32 @@ body {
   left: 0;
 }
 
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.icon-wrapper:hover {
+  background-color: white;
+  cursor:pointer;
+}
+
+.icon-wrapper img {
+  width: 32px;
+  height: 32px;
+  pointer-events: none; /* So only the container triggers hover */
+  object-fit: contain;
+  pointer-events: none;
+  display: block;   
+}
+
 .layout {
   display: flex;
   height: 100vh;
@@ -52,6 +78,29 @@ body {
   justify-content: center;
   align-items: flex-start;
   background-color:white;
+  flex-direction: row;
+}
+
+.submenu {
+  position: absolute;
+  left: 70px; /* Same as sidebar width */
+  top: 0;
+  background-color: #333;
+  color: white;
+  padding: 8px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  min-width: 100px;
+}
+
+.submenu div {
+  padding: 10px 0;
+}
+
+.submenu div:hover {
+  background-color: white;
+  color: black;
 }
 
 .Card {
