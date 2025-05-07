@@ -26,20 +26,33 @@ const App = () => {
         renderedLang={renderedLang}
         setRenderedLang={setRenderedLang}
       />
-      <div className="main-content">
-        {submenuSelection
-          ? filtered.map((res, i) => <Card key={i} {...res} />)
-          : 
-          <div className="welcome-page">
-          <h1>Welcome to the Resource Hub</h1>
-          <img
-            src="/images/techbot.svg" // use your uploaded image here
-            alt="welcome"
-            style={{ maxWidth: "400px", marginTop: "20px" }}
-          />
-          <p style={{ marginTop: "20px" }}>Select a language from the sidebar to explore videos and books.</p>
-        </div>
-        }
+        <div className="main-content">
+        {submenuSelection ? (
+          <div className="flex flex-col w-full max-w-6xl px-6 gap-6">
+            <h1 className="text-4xl font-bold">Resources</h1>
+            <div className="flex flex-wrap gap-6">
+              {filtered.map((res, i) => (
+                <Card key={i} {...res} />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="text-center p-6 max-w-xl mx-auto">
+            <h1 className="text-4xl font-bold mb-4 text-blue-600">
+              Welcome to the Resource Hub
+            </h1>
+            <div className="flex justify-center mt-25">
+              <img
+                src="/images/techbot.svg"
+                alt="welcome"
+                className="w-full max-w-xs h-auto animate-bounce"
+              />
+            </div>
+            <p className="text-lg text-gray-700 mt-4">
+              Select a language from the sidebar to explore videos and books.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
