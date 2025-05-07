@@ -8,24 +8,26 @@ import { useState } from 'react';
 
 const App = () => {
   const [selectedLang, setSelectedLang] = useState(null);
-  const [submenuSelect, setSubmenuSelection] = useState(null);
-  const [pendingLang, setPendingLang] = useState(null);
+  const [submenuSelection, setSubmenuSelection] = useState(null);
+  const [renderedLang, setRenderedLang] = useState(null);
 
-  const filteredResources = resources.filter(r => r.language === selectedLang);
-  const filtered = filteredResources.filter(res => res.type === submenuSelect);
+  const filteredResources = resources.filter(r => r.language === renderedLang);
+  const filtered = filteredResources.filter(res => res.type === submenuSelection);
 
   return (
     <div className="layout">
       <Sidebar
-        submenuSelect={submenuSelect}
+        submenuSelect={submenuSelection}
         setSubmenuSelection={setSubmenuSelection}
-        onSelect={setSelectedLang}
+
+        setSelectedLang={setSelectedLang}
         selectedLang={selectedLang}
-        pendingLang={pendingLang}
-        setPendingLang={setPendingLang}
+
+        renderedLang={renderedLang}
+        setRenderedLang={setRenderedLang}
       />
       <div className="main-content">
-        {submenuSelect
+        {submenuSelection
           ? filtered.map((res, i) => <Card key={i} {...res} />)
           : <p>Please select a resource type.</p>
         }

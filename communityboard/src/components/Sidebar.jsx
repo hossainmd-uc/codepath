@@ -2,32 +2,38 @@ import React from "react"
 import { useState } from "react";
 import { useRef } from "react";
 
-const Sidebar = ({ onSelect, selectedLang, setSubmenuSelection, submenuSelect, pendingLang, setPendingLang }) => {
+const Sidebar = ({setSubmenuSelection, submenuSelection, 
+                  renderedLang, setRenderedLang, 
+                  selectedLang, setSelectedLang}) => {
     const refMap = {
       react: useRef(null),
       python: useRef(null),
     };
   
     const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
-    const [showSubmenu, setShowSubmenu] = useState(false);
   
     const toggleLang = (lang) => {
-      const isSameLang = pendingLang === lang;
-  
-      if (isSameLang && !submenuSelect) {
-        setPendingLang(null);
-        setShowSubmenu(false);
-      } else {
-        setPendingLang(lang);
-        setShowSubmenu(true);
-  
-        const ref = refMap[lang];
-        if (ref?.current) {
-          const rect = ref.current.getBoundingClientRect();
-          setMenuPosition({ top: rect.top, left: rect.right });
-        }
+      
+      if (!selectedLang){
+        setSelectedLang(lang);
+      }else{
+        setSelectedLang(null);
       }
+      const ref = refMap[lang];
+      if (ref?.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setMenuPosition({ top: rect.top, left: rect.right });
+    }
     };
+
+    const render = (type) => {
+
+        //if submenu item clicked
+        setSubmenuSelection(type);
+        setRenderedLang(selectedLang)
+        setSelectedLang(null);
+        
+    }
   
     const icons = [
       { name: "home", src: "/images/home.png" },
@@ -47,8 +53,8 @@ const Sidebar = ({ onSelect, selectedLang, setSubmenuSelection, submenuSelect, p
             <img src={icon.src} alt={icon.name} />
           </div>
         ))}
-  
-        {pendingLang && showSubmenu && (
+        
+        {selectedLang && (
           <div
             className="submenu"
             style={{
@@ -59,18 +65,10 @@ const Sidebar = ({ onSelect, selectedLang, setSubmenuSelection, submenuSelect, p
             }}
           >
             <div
-              onClick={() => {
-                setSubmenuSelection("video");
-                onSelect(pendingLang);
-                setShowSubmenu(false);
-              }}
+              onClick={() => render("video")}
             >Videos</div>
             <div
-              onClick={() => {
-                setSubmenuSelection("book");
-                onSelect(pendingLang);
-                setShowSubmenu(false);
-              }}
+              onClick={() => render("book")}
             >Books</div>
           </div>
         )}
