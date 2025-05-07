@@ -31,6 +31,12 @@ const Sidebar = ({setSubmenuSelection, submenuSelection,
 
     const toggleLang = (lang) => {
       
+      if (lang === "home"){
+        setRenderedLang(null)
+        setSubmenuSelection(null);
+        return;
+      }
+
       if (!selectedLang){
         setSelectedLang(lang);
       }else if (selectedLang !== lang) {

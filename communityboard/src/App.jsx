@@ -29,7 +29,16 @@ const App = () => {
       <div className="main-content">
         {submenuSelection
           ? filtered.map((res, i) => <Card key={i} {...res} />)
-          : <p>Please select a resource type.</p>
+          : 
+          <div className="welcome-page">
+          <h1>Welcome to the Resource Hub</h1>
+          <img
+            src="/images/techbot.svg" // use your uploaded image here
+            alt="welcome"
+            style={{ maxWidth: "400px", marginTop: "20px" }}
+          />
+          <p style={{ marginTop: "20px" }}>Select a language from the sidebar to explore videos and books.</p>
+        </div>
         }
       </div>
     </div>
