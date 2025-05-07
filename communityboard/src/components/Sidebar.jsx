@@ -1,5 +1,5 @@
 import React from "react"
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { useRef } from "react";
 
 const Sidebar = ({setSubmenuSelection, submenuSelection, 
@@ -10,8 +10,25 @@ const Sidebar = ({setSubmenuSelection, submenuSelection,
       python: useRef(null),
     };
   
+    const submenuRef = useRef(null);
     const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
   
+    useEffect(() => {
+      const handleClickOutside = (e) => {
+        if (
+          selectedLang &&
+          submenuRef.current &&
+          !submenuRef.current.contains(e.target) &&
+          !refMap[selectedLang]?.current.contains(e.target)
+        ) {
+          setSelectedLang(null);
+        }
+      };
+    
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, [selectedLang]);
+
     const toggleLang = (lang) => {
       
       if (!selectedLang){
@@ -58,7 +75,7 @@ const Sidebar = ({setSubmenuSelection, submenuSelection,
         
         {selectedLang && selectedLang !== "home" && (
           <div
-            className="submenu"
+            className="submenu" ref={submenuRef}
             style={{
               top: `${menuPosition.top}px`,
               left: `${menuPosition.left + 10}px`,
