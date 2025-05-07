@@ -16,6 +16,8 @@ const Sidebar = ({setSubmenuSelection, submenuSelection,
       
       if (!selectedLang){
         setSelectedLang(lang);
+      }else if (selectedLang !== lang) {
+        setSelectedLang(lang);
       }else{
         setSelectedLang(null);
       }
@@ -54,7 +56,7 @@ const Sidebar = ({setSubmenuSelection, submenuSelection,
           </div>
         ))}
         
-        {selectedLang && (
+        {selectedLang && selectedLang !== "home" && (
           <div
             className="submenu"
             style={{
