@@ -42,7 +42,6 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-https://i.imgur.com/dM2RY1c.gif
 <img src='https://i.imgur.com/dM2RY1c.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 GIF created with ScreenToGif 
 
