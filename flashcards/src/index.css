@@ -23,6 +23,7 @@ body, html, #root{
 
 .Easy {
   filter: hue-rotate(-80deg);
+  transition: filter 0.5s ease;
 }
 .Easy img {
   max-width:180px;
@@ -32,6 +33,7 @@ body, html, #root{
 
 .Medium {
   filter: hue-rotate(50deg);
+  transition: filter 0.5s ease;
 }
 .Medium img {
   max-width:180px;
@@ -41,6 +43,7 @@ body, html, #root{
 
 .Hard {
   filter: hue-rotate(100deg);
+  transition: filter 0.5s ease;
 }
 .hard img {
   max-width:180px;
