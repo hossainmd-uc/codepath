@@ -3,19 +3,22 @@ const resources = [
     question: "What is the chemical symbol for water?",
     answer: "H₂O",
     difficulty: "Easy",
-    subject: "Chemistry"
+    subject: "Chemistry",
+    img: "/images/water.jpg"
   },
   {
     question: "What is the acceleration due to gravity on Earth?",
     answer: "9.8 m/s²",
     difficulty: "Medium",
-    subject: "Physics"
+    subject: "Physics",
+    img: "/images/gravity.jpeg"
   },
   {
     question: "What gas do plants use during photosynthesis?",
     answer: "Carbon dioxide (CO₂)",
     difficulty: "Easy",
-    subject: "Biology"
+    subject: "Biology",
+    img: "/images/plant.jpg"
   },
   {
     question: "What is the center of an atom called?",

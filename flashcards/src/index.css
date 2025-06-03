@@ -24,13 +24,28 @@ body, html, #root{
 .Easy {
   filter: hue-rotate(-80deg);
 }
+.Easy img {
+  max-width:180px;
+  max-height: 120px;
+  filter: hue-rotate(80deg);
+}
 
 .Medium {
   filter: hue-rotate(50deg);
 }
+.Medium img {
+  max-width:180px;
+  max-height: 120px;
+  filter: hue-rotate(-50deg);
+}
 
 .Hard {
   filter: hue-rotate(100deg);
+}
+.hard img {
+  max-width:180px;
+  max-height: 120px;
+  filter: hue-rotate(-100deg);
 }
 
 .flip-card {
@@ -62,8 +77,8 @@ body, html, #root{
   backface-visibility: hidden;
 }
 
-.flip-card-front {
-}
+/* .flip-card-front {
+} */
 
 .flip-card-back {
   color: white;

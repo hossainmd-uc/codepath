@@ -61,7 +61,7 @@ function App() {
        <div class="flip-card">
         <div className={`${flipped ? "flipped" : ""} flip-card-inner `} >
           <div class="flip-card-front">
-          <Flashcard difficulty={resources[index].difficulty} flip={() => flip()} text={resources[index].question}/>
+          <Flashcard img={resources[index].img} difficulty={resources[index].difficulty} flip={() => flip()} text={resources[index].question}/>
            </div>
            <div class="flip-card-back">
           <Flashcard difficulty={resources[index].difficulty} flip={() => flip()} text={resources[index].answer}/>
