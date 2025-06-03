@@ -28,8 +28,8 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 * [ ] List anything else that you added to improve the site's functionality!
--Welcome Page
--Sidebar Navigation
+- Welcome Page
+- Sidebar Navigation
 
 ## Video Walkthrough
 
