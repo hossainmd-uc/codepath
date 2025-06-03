@@ -1,8 +1,8 @@
-# Web Development Project 2 - *Name of App Here*
+# Web Development Project 2 - *Flashcards 1*
 
-Submitted by: **Rain Hossain**
+Submitted by: **Md Hossain**
 
-This web app: **insert description**
+This web app: **Science Nerd Quiz**
 
 Time spent: **5** hours spent in total
 
@@ -11,9 +11,9 @@ Time spent: **5** hours spent in total
 The following **required** functionality is completed:
 
 
-- [ ] **The app displays the title of the card set, a short description, and the total number of cards**
+- [✅] **The app displays the title of the card set, a short description, and the total number of cards**
     - [✅] Title of card set is displayed 
-    - [🚧] A short description of the card set is displayed 
+    - [✅] A short description of the card set is displayed 
     - [✅] A list of card pairs is created
     - [✅] The total number of cards in the set is displayed 
     - [✅] Card set is represented as a list of card pairs (an array of dictionaries where each dictionary contains the question and answer is perfectly fine)
@@ -43,12 +43,7 @@ Here's a walkthrough of implemented required features:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+GIF created with ScreenToGif 
 
 ## Notes
 
@@ -56,7 +51,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2025] [Md Rifayat Hossain]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
