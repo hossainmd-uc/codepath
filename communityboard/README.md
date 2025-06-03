@@ -4,7 +4,7 @@ Submitted by: **Md Rifayat Hossain**
 
 This web app: **Programmming Language Resources**
 
-Time spent: **19** hours spent in total
+Time spent: **9** hours spent in total
 
 ## Required Features
 
