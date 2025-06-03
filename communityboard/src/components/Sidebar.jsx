@@ -44,7 +44,9 @@ const Sidebar = ({setSubmenuSelection, submenuSelection,
       }else{
         setSelectedLang(null);
       }
+
       const ref = refMap[lang];
+      
       if (ref?.current) {
         const rect = ref.current.getBoundingClientRect();
         setMenuPosition({ top: rect.top, left: rect.right });
