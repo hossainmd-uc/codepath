@@ -66,9 +66,27 @@ function App() {
     setFlipped(false);
   };
 
+  const restart = () => {
+    setStart(false);
+    shuffle();
+    setText(shuffledResources[0].question);
+  }
+
   return (
     <>
-    <div className='main flex items-center flex-col w-full h-full bg-[#1e1e2f] transition-all duration-900 animate-fade-in'>
+         <div className='main flex items-center flex-col w-full h-full bg-zinc-900 transition-all duration-900 animate-fade-in'>
+      {/* Floating Science Particles */}
+      <div className="science-particles">
+        <div className="particle text-2xl">⚛️</div>
+        <div className="particle text-xl">🧪</div>
+        <div className="particle text-2xl">🔬</div>
+        <div className="particle text-xl">🧬</div>
+        <div className="particle text-2xl">⚗️</div>
+        <div className="particle text-xl">🌡️</div>
+        <div className="particle text-2xl">💊</div>
+        <div className="particle text-xl">🦠</div>
+        <div className="particle text-2xl">⭐</div>
+      </div>
       {!start ? (
       <div className='start-page'>
       <div className='title mt-15 mb-15'>
@@ -78,8 +96,17 @@ function App() {
       </div>
       </div>) :
       
-       (<div className='mt-20 main flex items-center flex-col w-full h-full bg-[#1e1e2f] transition-all duration-700 animate-fade-in'>
-       <h1 class="text-5xl mb-10 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600" >The Ultimate Science Nerd </h1>
+       (<div className='mt-20 main flex items-center flex-col w-full h-full bg-zinc-900 transition-all duration-700 animate-fade-in'>
+       <h1 class="text-5xl mb-10 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-100" >The Ultimate Scientist </h1>
+       <div className="w-full max-w-md mb-4">
+        <div className="bg-gray-700 rounded-full h-2">
+          <div 
+            className="bg-gradient-to-r from-emerald-400 to-cyan-400 h-2 rounded-full transition-all duration-300"
+            style={{width: `${((index + 1) / shuffledResources.length) * 100}%`}}
+          ></div>
+        </div>
+        <p className="text-gray-400 text-sm mt-1 text-center">{index + 1} of {shuffledResources.length}</p>
+      </div>
        <div class="flip-card">
         <div className={`${flipped ? "flipped" : ""} flip-card-inner `} >
           <div class="flip-card-front">
@@ -92,10 +119,10 @@ function App() {
        </div>
        <Guess index={index} shuffledResources={shuffledResources} userCheckedGuess={userCheckedGuess} setUserCheckedGuess={setUserCheckedGuess}/>
        <div className='mt-5 flex flex-row gap-3'>
-        <img onClick={() => prev()} className='transition duration-50 transform hover:scale-120 cursor-pointer border-rounded-sm p-2 bg-[#111827] size-9 active:bg-gray-900 hover:bg-emerald-500' src='/images/caret-left-white-icon.png'/>
-        <img onClick={() => next()} className='transition duration-50 transform hover:scale-120 cursor-pointer border-rounded-sm p-2 bg-[#111827] size-9 active:bg-gray-900 hover:bg-emerald-500' src='/images/caret-right-white-icon.png'/>
+        <img onClick={() => prev()} className='rounded-md transition duration-50 transform hover:scale-120 cursor-pointer border-rounded-sm p-2 bg-black size-9 active:bg-gray-900 hover:bg-emerald-500' src='/images/caret-left-white-icon.png'/>
+        <img onClick={() => next()} className='rounded-md transition duration-50 transform hover:scale-120 cursor-pointer border-rounded-sm p-2 bg-black size-9 active:bg-gray-900 hover:bg-emerald-500' src='/images/caret-right-white-icon.png'/>
         <button onClick={() => shuffle()} className='text-md font-bold   active:bg-red-500 bg-black hover:bg-white  hover:text-black cursor-pointer rounded transition duration-150 transform hover:scale-105 min-w-20'>Shuffle</button>
-        <button onClick={() => setStart(false)} className='text-md font-bold   active:bg-red-500 bg-black hover:bg-white  hover:text-black cursor-pointer rounded transition duration-150 transform hover:scale-105 min-w-20'>Restart</button>
+        <button onClick={() => restart()} className='text-md font-bold   active:bg-red-500 bg-black hover:bg-white  hover:text-black cursor-pointer rounded transition duration-150 transform hover:scale-105 min-w-20'>Restart</button>
        </div>
        </div>
     )}
