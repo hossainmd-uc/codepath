@@ -33,12 +33,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] **Professional Dark Theme**: Modern zinc-900 color scheme with gradient text effects
 * [x] **Animated Science Particles**: Floating science-themed emojis (⚛️🧪🔬🧬⚗️🌡️💊🦠⭐) with random positioning and timing
 * [x] **Progress Tracking**: Visual progress bar showing current position in the deck with "X of Y" counter
 * [x] **Welcome Screen**: Engaging start page with gradient title and call-to-action button
 * [x] **Difficulty Indicators**: Visual difficulty levels (Easy, Medium, Hard) displayed on cards
-* [x] **Smart Answer Checking**: Intelligent matching with array of accepted answers per question
 * [x] **Restart Functionality**: Ability to restart the entire session and reshuffle cards
 * [x] **Visual Feedback**: Color-coded correct/incorrect responses with smooth transitions
 
