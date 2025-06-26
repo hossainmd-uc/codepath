@@ -5,6 +5,8 @@ import resources from './data/resources.js'
 import Guess from './components/guess.jsx'
 
 function App() {
+  const [answered, setAnswered] = useState([])
+  const [count, setCount] = useState(0)
   const [text, setText] = useState(resources[0].question)
   const [index, setIndex] = useState(0)
   const [flipped, setFlipped] = useState(false);
@@ -70,6 +72,8 @@ function App() {
     setStart(false);
     shuffle();
     setText(shuffledResources[0].question);
+    setCount(0)
+    setAnswered([])
   }
 
   return (
@@ -117,7 +121,8 @@ function App() {
           </div>
         </div>
        </div>
-       <Guess index={index} shuffledResources={shuffledResources} userCheckedGuess={userCheckedGuess} setUserCheckedGuess={setUserCheckedGuess}/>
+       <p>Streak: {count}</p>
+       <Guess answered={answered} setAnswered={setAnswered} count={count} setCount={setCount} index={index} shuffledResources={shuffledResources} userCheckedGuess={userCheckedGuess} setUserCheckedGuess={setUserCheckedGuess}/>
        <div className='mt-5 flex flex-row gap-3'>
         <img onClick={() => prev()} className='rounded-md transition duration-50 transform hover:scale-120 cursor-pointer border-rounded-sm p-2 bg-black size-9 active:bg-gray-900 hover:bg-emerald-500' src='/images/caret-left-white-icon.png'/>
         <img onClick={() => next()} className='rounded-md transition duration-50 transform hover:scale-120 cursor-pointer border-rounded-sm p-2 bg-black size-9 active:bg-gray-900 hover:bg-emerald-500' src='/images/caret-right-white-icon.png'/>

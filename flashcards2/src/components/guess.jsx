@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-const Guess = ({index, shuffledResources, userCheckedGuess, setUserCheckedGuess}) => {
+const Guess = ({index, shuffledResources, userCheckedGuess, setUserCheckedGuess, setCount, count, setAnswered, answered}) => {
     const [guess, setGuess] = useState('')
     const [correct, setCorrect] = useState(false)
 
@@ -17,6 +17,18 @@ const Guess = ({index, shuffledResources, userCheckedGuess, setUserCheckedGuess}
     const checkGuess = (guess) => {
         const isCorrect = checkAnswer(guess, currentQuestion)
         setCorrect(isCorrect)
+        if (isCorrect) {
+            console.log("Answer is coorect")
+            if (!answered.includes(index)){
+                console.log("Answered does not include index")
+                setCount(prev => prev + 1)
+                setAnswered(prev => prev.includes(index) ? prev : [...prev, index])
+            }
+        }
+        else {
+            setCount(0);
+            setAnswered(prev => prev.filter(item => item !== index))
+        }
     }
 
     const checkAnswer = (userGuess, questionData) => {

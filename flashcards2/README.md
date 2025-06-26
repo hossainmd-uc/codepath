@@ -28,7 +28,7 @@ The following **optional** features are implemented:
   - Answers are considered correct even if they only partially match the answer on the card 
   - Features include: ignoring uppercase/lowercase discrepancies, ignoring punctuation discrepancies, accepting multiple variations of answers
   - Examples: "H2O", "h2o", "H₂O" are all accepted for water; "carbon dioxide", "co2", "co₂" all work
-- [ ] **A counter displays the user's current and longest streak of correct responses**
+- [x] **A counter displays the user's current and longest streak of correct responses**
 - [ ] **A user can mark a card that they have mastered and have it removed from the pool of displayed cards**
 
 The following **additional** features are implemented:
@@ -44,14 +44,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/hafiyCY.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+GIF created with ScreenToGif
+
 
 ## Features Breakdown
 
