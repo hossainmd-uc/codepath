@@ -1,34 +1,78 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
+import axios from 'axios'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [apiResp, setApiResp] = useState({})
+  const [img, setImg] = useState('')
+  
+
+
+  useEffect(() => {
+    console.log("ran")
+    const apirequest = () => {
+      try {
+        axios({
+          method: 'get',
+          url: 'https://api.thedogapi.com/v1/images/search?has_breeds=1',
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "live_lfKQjh6rSgBAGe0O0FsY27k2SHd6EkfluLP5hyCUL5O3wConchbLk7yIeeNZMbnh"
+          },
+          timeout: 1500
+      
+        })
+        .then(function (response) {
+          const data = response.data
+          setApiResp(data[0])
+          setImg(data[0].url)
+          console.log(data)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+      }
+      catch (e) {
+        print(e)
+      }
+    }
+
+    apirequest()
+  }, [])
+
+  
+
+  
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <h5 className="text-2xl font-bold mb-4">Doggy Dopamine Booster</h5>
+ 
+      <div className='flex flex-row gap-2'>
+        <div className='basis-1/4'>Test testset setse tse</div>
+        <div className='basis-1/2'>
+          {img ? (
+            <img className='w-full h-64 object-cover rounded-lg shadow-lg' src={img}/>
+          ) : (
+            <div className='w-full h-64 bg-gray-200 rounded-lg shadow-lg flex items-center justify-center animate-pulse'>
+              <div className='text-center'>
+                <div className='w-16 h-16 bg-gray-300 rounded-full mx-auto mb-4'></div>
+                <p className='text-gray-500 text-lg'>Loading adorable dog...</p>
+                <div className='w-3/4 h-4 bg-gray-300 rounded mx-auto mt-2'></div>
+                <div className='w-1/2 h-4 bg-gray-300 rounded mx-auto mt-2'></div>
+              </div>
+            </div>
+          )}
+          <div className='mt-3'>
+            {apiResp?.breeds?.length > 0 && (
+              <p className='text-xl font-semibold text-gray-800'>{apiResp.breeds[0].name}</p>
+            )}
+          </div>
+        </div>
+        <div className='basis-1/4'> t estset est set s te test estsettes estse tse tsetset sett retes tse t test setest estes etstestest</div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      </>
   )
 }
 
