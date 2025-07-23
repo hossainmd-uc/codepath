@@ -1,8 +1,19 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Listitem = ({data}) => {
+  const navigate = useNavigate()
+
+  const handleRowClick = () => {
+    navigate(`/crypto/${data.id}`)
+  }
+
   return (
-    <tr className="hover:bg-gray-50">
+    <tr 
+      className="hover:bg-gray-50 cursor-pointer transition-colors duration-200" 
+      onClick={handleRowClick}
+      title={`Click to view ${data.name} details`}
+    >
         <td className="px-6 py-4 whitespace-nowrap">
           <div className="flex items-center">
             <div>
